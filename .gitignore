@@ -1,0 +1,54 @@
+# Directory generata / esperimenti intermedi
+encoderonly_complete/
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.envs/
+.venv/
+.python-version
+
+# PyTorch / training artifacts
+*.pt
+*.pth
+*.ckpt
+*.pth.tar
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE/editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# System files
+Thumbs.db
+desktop.ini
+
+# Misc
+*.tmp
+*.temp
+*~
+
+# Ignore dataset / cache directories if created
+data/*.cache
+tmp/
