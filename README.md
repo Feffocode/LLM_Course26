@@ -2,6 +2,10 @@
 
 Benvenuto nel repository del corso **LLM & AI Generativa**.
 
+### Link utili
+
+Guida Huggingface: https://huggingface.co/learn/llm-course/chapter1/1
+
 ---
 
 ## Come iniziare
