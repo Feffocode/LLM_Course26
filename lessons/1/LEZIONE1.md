@@ -112,3 +112,7 @@ Dopo 20 epoche di training con i parametri attuali:
 - **norm_first=True**: Layer normalization prima dell'attenzione
 - **activation="gelu"**: GELU invece di ReLU per migliore performance
 - **src_key_padding_mask**: Maschera invertita per TransformerEncoder 
+
+# GUIDA BERT
+
+https://huggingface.co/docs/transformers/model_doc/bert
