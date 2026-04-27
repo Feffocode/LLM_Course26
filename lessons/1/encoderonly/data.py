@@ -85,15 +85,31 @@ class ReviewDataset(Dataset): # definiamo una classe che estende Dataset di PyTo
         # Input:  "il film è bello"  ->  ids grezzo: [4, 23, 7, 156]
         # Output: ids = [2, 4, 23, 7, 156, 0, 0, ...]  (lunghezza 32)
         #         mask= [1, 1,  1, 1,   1, 0, 0, ...]  (lunghezza 32)
+        
         ids = self.tokenizer.encode(text) # restituisce una lista di interi
         ids = [self.tokenizer.cls_id()] + ids # aggiungiamo l'id di [CLS] all'inizio (convenzione BERT)
-        pass
+        
+        # 3. tronca se troppo lunga
+        ids = ids[:self.max_seq_len]
+        
+        # 4. costruisci attention_mask (lunga quanto gli ids correnti)
+        attention_mask = [1] * len(ids)
+        
+        # 5. fai padding fino a max_seq_len
+        pad_length = self.max_seq_len - len(ids)
+        ids = ids + [self.tokenizer.pad_id()] * pad_length
+        attention_mask = attention_mask + [0] * pad_length
 
         # TODO 2 ──────────────────────────────────────────────────
         # Converti ids, attention_mask e label in tensori PyTorch.
         # Usa torch.tensor(..., dtype=torch.long) per tutti e tre.
         # Restituisci la tupla (input_ids, attention_mask, label).
-        pass
+        
+        input_ids_tensor = torch.tensor(ids, dtype=torch.long)
+        attention_mask_tensor = torch.tensor(attention_mask, dtype=torch.long)
+        label_tensor = torch.tensor(label, dtype=torch.long)
+
+        return (input_ids_tensor, attention_mask_tensor, label_tensor)
 
 
 # ------------------------------------------------------------------
