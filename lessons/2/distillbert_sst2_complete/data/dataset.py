@@ -4,6 +4,22 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 import sys
 import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "0"
+from datasets import config as datasets_config
+from huggingface_hub import constants as hf_constants
+
+print("=== PERCORSI CACHE HUGGING FACE ===")
+print(f"Cartella Base (HF_HOME): {hf_constants.HF_HOME}")
+print(f"Cache Modelli (Hub):     {hf_constants.HF_HUB_CACHE}")
+print(f"Cache Dataset:           {datasets_config.HF_DATASETS_CACHE}")
+
+# ... qui sotto ci saranno i tuoi import originali, ad esempio:
+# from datasets import load_dataset
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+from datasets import load_dataset
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__))) # aggiungiamo la cartella padre al path
 from config import(
